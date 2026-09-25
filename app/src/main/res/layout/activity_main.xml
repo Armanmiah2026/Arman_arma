@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5FAF7">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🛡  Sensei Tunnel" android:textStyle="bold" android:textSize="28sp" android:textColor="#111816"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="v1.0.51 • multi-protocol" android:textSize="15sp" android:textColor="#7B8A84" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMenu"
+                android:layout_width="52dp" android:layout_height="52dp"
+                android:text="☰" android:textSize="24sp" android:textColor="#17211E"
+                android:contentDescription="Menu" app:cornerRadius="18dp" app:backgroundTint="#FFFFFF"/>
+        </LinearLayout>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="QUICK" android:textStyle="bold" android:textSize="13sp" android:textColor="#7B8A84" android:letterSpacing="0.18" android:layout_marginTop="26dp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="10dp">
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnSettings" android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:text="⚙  Settings" android:textSize="14sp" android:textColor="#3F514A" app:backgroundTint="#EAF4EE" app:cornerRadius="18dp"/>
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnSpeedTest" android:layout_width="0dp" android:layout_height="52dp" android:layout_weight="1" android:layout_marginStart="10dp" android:text="◔  Speed Test" android:textSize="14sp" android:textColor="#3F514A" app:backgroundTint="#EAF4EE" app:cornerRadius="18dp"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="24dp" android:gravity="center_vertical">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Configs" android:textSize="27sp" android:textStyle="bold" android:textColor="#101815"/>
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnReload" android:layout_width="48dp" android:layout_height="48dp" android:text="↻" android:textSize="25sp" android:textColor="#00A95C" app:backgroundTint="#EAF4EE" app:cornerRadius="18dp"/>
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnAddConfig" android:layout_width="48dp" android:layout_height="48dp" android:layout_marginStart="8dp" android:text="＋" android:textSize="25sp" android:textColor="#FFFFFF" app:backgroundTint="#00A95C" app:cornerRadius="18dp"/>
+        </LinearLayout>
+
+        <TextView android:id="@+id/tvImportedFiles" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Imported files: 0" android:textSize="13sp" android:textColor="#718079" android:layout_marginTop="8dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnImportConfig"
+            android:layout_width="match_parent" android:layout_height="52dp"
+            android:layout_marginTop="14dp" android:text="Import .ovpn File" android:textStyle="bold"
+            android:textColor="#FFFFFF" app:backgroundTint="#00A95C" app:cornerRadius="18dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnManualConfig"
+            android:layout_width="match_parent" android:layout_height="52dp"
+            android:layout_marginTop="9dp" android:text="Manual OVPN Config" android:textStyle="bold"
+            android:textColor="#00A95C" app:strokeColor="#00A95C" app:strokeWidth="1dp" app:backgroundTint="#FFFFFF" app:cornerRadius="18dp"/>
+
+        <TextView android:id="@+id/tvProfileInfo" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Selected: bundled assets/japan.ovpn" android:textSize="14sp" android:textColor="#50625A" android:layout_marginTop="12dp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="12dp" android:background="#EAF4EE" android:padding="4dp">
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnOpenVpn" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:text="OpenVPN" android:textSize="14sp" android:textStyle="bold" app:cornerRadius="15dp" app:backgroundTint="#00A95C" android:textColor="#FFFFFF"/>
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnV2Ray" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:text="⚡ V2Ray" android:textSize="14sp" android:textStyle="bold" app:cornerRadius="15dp" app:backgroundTint="#EAF4EE" android:textColor="#50625A"/>
+        </LinearLayout>
+
+        <Spinner android:id="@+id/spinnerProtocol" android:layout_width="1dp" android:layout_height="1dp" android:visibility="gone"/>
+        <Spinner android:id="@+id/spinnerProfile" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="8dp" android:background="#FFFFFF"/>
+
+        <LinearLayout android:id="@+id/configList" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="10dp"/>
+
+        <TextView android:id="@+id/tvSessionUsage" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ready" android:textSize="14sp" android:textColor="#4F625A" android:gravity="center" android:layout_marginTop="14dp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="10dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:background="#FFFFFF" android:padding="14dp" android:orientation="vertical" android:gravity="center">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="↓ Download" android:textSize="12sp" android:textColor="#74827D"/>
+                <TextView android:id="@+id/tvDownloadSpeed" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.0 KB/s" android:textSize="16sp" android:textStyle="bold" android:textColor="#00A95C"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" android:background="#FFFFFF" android:padding="14dp" android:orientation="vertical" android:gravity="center">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="↑ Upload" android:textSize="12sp" android:textColor="#74827D"/>
+                <TextView android:id="@+id/tvUploadSpeed" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.0 KB/s" android:textSize="16sp" android:textStyle="bold" android:textColor="#F44336"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnConnect" android:layout_width="match_parent" android:layout_height="58dp" android:layout_marginTop="16dp" android:text="Connect OpenVPN" android:textSize="18sp" android:textStyle="bold" android:textColor="#FFFFFF" app:backgroundTint="#00A95C" app:cornerRadius="20dp"/>
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnClearConfig" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="8dp" android:text="Delete Selected" android:textColor="#D32F2F" app:backgroundTint="#FFF5F5" app:cornerRadius="18dp"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="VPN profiles are stored locally on this device." android:textSize="12sp" android:textColor="#8A9690" android:gravity="center" android:layout_marginTop="16dp" android:layout_marginBottom="24dp"/>
+    </LinearLayout>
+</ScrollView>

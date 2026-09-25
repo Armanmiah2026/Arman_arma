@@ -1,0 +1,59 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    namespace 'com.example.bongovpn'
+    compileSdk 37
+
+    // Mandatory dependency for Bongo VPN Library
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.example.bongovpn"
+        minSdk 24
+        targetSdk 37
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    // Android Core & UI Dependencies
+    implementation libs.activity.ktx
+    implementation libs.appcompat
+    implementation libs.constraintlayout
+    implementation libs.material
+    
+    // Testing Dependencies
+    testImplementation libs.junit
+    androidTestImplementation libs.espresso.core
+    androidTestImplementation libs.ext.junit
+
+    // Bongo VPN Library (OpenVPN এর জন্য)
+    implementation 'ai.bongotech:bongovpn:1.0.3'
+
+    // Real Xray core (Android AAR). The app uses reflection so small API/package changes do not break compilation.
+    implementation 'io.github.wanliyunyan:libxray:26.7.28'
+
+    // V2Ray কোরের জন্য আপনার লোকাল লাইব্রেরি মডিউল এখানে যুক্ত করতে হবে
+    // উদাহরণস্বরূপ: implementation project(':libv2ray')
+}
